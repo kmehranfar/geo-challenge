@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 """ Find Store.
 
 Usage:
@@ -22,11 +20,9 @@ import googlemaps
 
 import pandas as pd
 from math import radians, cos, sin, asin, sqrt
-df = pd.read_csv('c:/users/kaveh/desktop/store-locations.csv')
+df = pd.read_csv('./store-locations.csv')
 
 AVG_EARTH_RADIUS = 6371  # in km
-
-df['Latitude'], df['Longitude']
 
 def haversine(row, point2, miles=False):
     """ Calculate the great-circle distance between two points on the Earth surface.
@@ -65,12 +61,16 @@ def produce_output(location_dict, output_type):
 		print("Zip: ", location_dict["Zip Code"])
 	elif output_type == "json":
 		print(json.dumps(location_dict))
+		
 	
 def find_nearest_store(geocode_me, output_type="text", is_miles=True):
 	gmaps = googlemaps.Client(key='AIzaSyA6xLNRspdD_dTFqAq23P3ql1nxm9IROk8')
 
 	# geocode the address
-	geocode_result = gmaps.geocode(geocode_me)
+	try:
+		geocode_result = gmaps.geocode(geocode_me)
+	except Exceptions as e:
+		print(e)
 	
 	# retrieve coordinates from returned json
 	coord = geocode_result[0]['geometry']['location']

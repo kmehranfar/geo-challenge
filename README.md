@@ -28,4 +28,4 @@ https://github.com/mapado/haversine/blob/master/haversine/__init__.py
 ## Tests
 
 I used pytest for testing. Tests can be run like this:
-	pytest pytest_find_store.py
+	`pytest pytest_find_store.py`

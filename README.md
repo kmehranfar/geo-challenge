@@ -11,6 +11,8 @@ I chose 3, because it provides more control than 1 and is more flexible than 2. 
 this script is only a small subset of questions than can be asked about the data in the location file and pandas
 provides the flexibility to answer questions that may come up in the future.
 
+Haversine formula is used for calculating the distance between coordinates.
+
 For text output, I round the decimals to 2 digits. For json output, I do no rounding and provide more fields.
 
 ## Installation
